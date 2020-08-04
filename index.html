@@ -18,7 +18,13 @@
     <input type="search" id="site-search" aria-label="Search through site content" placeholder="Search...">
   </div>
   <button id="copy-links">Export links</button>
-  <input type="text" id="export" style="display: none;">
+  <div id="export-div" style="display: none;" class="bg">
+    <div class="close-ex">&times;</div>
+    <h1>Export links</h1>
+    <p>Paste code in web browser console and press Enter</p>
+    <p>In most cases F12 should open developer tools</p>
+    <input type="text" id="export">
+  </div>
   <button id="open">Add links +</button>
   <div id="links" style="display: none;" class="bg">
     <h1>Add links to LocalStorage</h1>

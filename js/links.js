@@ -4,11 +4,14 @@ const selection = document.getElementById("select");
 const choise = document.getElementById("choises");
 const createLink = document.getElementById("create-link");
 const outpus = document.getElementById("outpus");
+const closeEx = document.getElementsByClassName("close-ex")[0];
 const closeBtn = document.getElementsByClassName("close")[0];
 const opensBtn = document.getElementById("open");
 const adition = document.getElementById("aditions");
 const search = document.getElementById("site-search");
 const copyAll = document.getElementById("copy-links");
+const showExport = document.getElementById("export-div");
+const links = document.getElementById("links");
 
 function showCheckboxes(e) {
     addTextOfChecked();
@@ -121,11 +124,14 @@ function createElem(url, type, text, full) {
     let elems = document.createElement("a");
     let types = document.createElement("span");
     let texts = document.createElement("span");
+    let urls = document.createElement("span");
     elems.setAttribute("href", full);
     elems.setAttribute("target", "_blank");
     types.textContent = type;
-    elems.textContent = url;
+    urls.textContent = url;
     texts.textContent = text;
+    urls.className = "urls";
+    elems.appendChild(urls);
     elems.appendChild(texts);
     elems.appendChild(types);
     outpus.appendChild(elems);
@@ -139,14 +145,17 @@ createLink.addEventListener("click", () => {
 
 document.addEventListener("click", showCheckboxes);
 
+closeEx.addEventListener("click", () => {
+    hide(showExport);
+});
 closeBtn.addEventListener("click", () => {
-    hide(document.getElementById("links"));
+    hide(links);
 });
 opensBtn.addEventListener("click", () => {
-    hide(document.getElementById("links"));
+    hide(links);
 });
 
-search.addEventListener("keydown", function (event) {
+search.addEventListener("keydown", (e)=> {
     if (event.key === "Enter" && event.target.value.length > 2) {
         event.preventDefault();
         loopLocalStorageSearch();
@@ -156,26 +165,26 @@ search.addEventListener("keydown", function (event) {
     }
 });
 
-search.addEventListener("input", function (event) {
+search.addEventListener("input", (e) => {
     if (event.target.value.length > 2)
         loopLocalStorageSearch();
 });
 
-copyAll.addEventListener("click", function () {
+copyAll.addEventListener("click", (e) => {
     const data = document.getElementById("export");
-    hide(data);
+    hide(showExport);
     if (data.value.length > 0) {
         return;
     } else
         data.value = "var data = JSON.parse(" + JSON.stringify(JSON.stringify(localStorage)) + ");Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});"
 });
 
-function importLocalStorage(string) {
-    var data = JSON.parse(string);
-    Object.keys(data).forEach(function (k) {
-        localStorage.setItem(k, data[k]);
-    });
-}
+// function importLocalStorage(string) {
+//     var data = JSON.parse(string);
+//     Object.keys(data).forEach(function (k) {
+//         localStorage.setItem(k, data[k]);
+//     });
+// }
 
 addTextOfChecked();
 loopLocalStorage();

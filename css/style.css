@@ -7,11 +7,13 @@ body {
     margin: 0;
 }
 
+button,
 .bg {
-    background: linear-gradient(0deg, #703030, #9a7787) fixed;
+    background: linear-gradient(0deg, #a87575, #e0cad4) fixed;
 }
 
-#links {
+#links,
+#export-div {
     margin: 0 auto;
     position: fixed;
     padding: 6px 24px 24px;
@@ -21,6 +23,7 @@ body {
     border: 1px solid #aaa;
     background-position: 0 36px;
     border-radius: 4px;
+    min-height: 200px;
     box-shadow: 0 0 10px #000
 }
 
@@ -33,9 +36,10 @@ body {
     margin: 0 auto;
     padding: 24px 0 0
 }
-#export,
+
 #copy-links,
 #links .close,
+.close-ex,
 #open {
     position: absolute;
     right: 0;
@@ -46,15 +50,15 @@ body {
     border-radius: 4px;
     color: #fff;
     text-align: center;
+    background: #5c2828;
 }
+
 #copy-links {
     left: 0;
 }
-#export {
-    left: 50%;
-    transform: translateX(-50%);
-}
-#links .close {
+
+.close-ex,
+.close {
     width: 32px;
     line-height: 34px;
     font-size: 48px;
@@ -83,7 +87,8 @@ body {
     column-count: 3;
     max-width: 300px;
     overflow: hidden;
-    box-shadow:0 5px 5px #000;
+    box-shadow: 0 5px 5px #000;
+    z-index: 1;
     box-sizing: border-box
 }
 
@@ -140,7 +145,6 @@ body {
     gap: 1em;
     padding: 1em;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-template-rows: 1fr;
     max-width: 1100px;
     margin: 1em auto;
     border-radius: 4px;
@@ -151,29 +155,42 @@ body {
 #outpus a {
     background: linear-gradient(0deg, #f3f3f3, #ffffff);
     overflow: hidden;
-    min-height: 80px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    font-size: 15px;
     border-radius: 4px;
     box-shadow: 0 0 3px #000;
     max-width: 200px;
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #455;
-    padding: 24px;
     word-break: break-word;
+    height: 100%;
+    width: 100%;
+    min-height: 100px;
+    margin: auto;
 }
 
-#outpus a span {
+#outpus .urls {
+    font-size: 15px;
+    color: #455;
+    padding: 6px 12px;
+}
+
+#outpus span {
     font-size: 10px;
     color: #777;
+    padding: 2px 24px;
     text-transform: lowercase;
 }
 
+#export {
+    margin: 2em 0;
+    box-sizing: border-box;
+}
+
+#export,
 #aditions,
 #create-link,
 #site-search,
@@ -188,14 +205,26 @@ label {
 
 button {
     min-height: 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 2px #000;
+    border: 1px solid #8C626E;
+    opacity: 0.8;
+    color: #fff;
+    background: #5c2828;
+    font-weight: 900;
     cursor: pointer
+}
+
+button:hover {
+    opacity: 1;
 }
 
 h1 {
     margin: 0;
     font-size: 16px;
     text-align: center;
-    color: #aaa;
+    color: #fff;
+    text-shadow: 0 1px 0 #5c2828;
 }
 
 #search {
@@ -205,9 +234,9 @@ h1 {
     border-radius: 4px;
     overflow: hidden;
 }
+
 #search input {
     padding: 4px 12px;
     border: 0;
-    background: #8C626E;
-    color: #fff;
+    background: #C1B1B5;
 }

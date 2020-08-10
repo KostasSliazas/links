@@ -13,7 +13,7 @@ const search = document.getElementById("site-search");
 const copyAll = document.getElementById("copy-links");
 const showExport = document.getElementById("export-div");
 const links = document.getElementById("links");
-
+const found = document.getElementById("founded");
 function showCheckboxes(e) {
     addTextOfChecked();
     if (e.target.id === "select" && !(selection.classList.contains("open"))) {
@@ -90,6 +90,7 @@ function loopLocalStorage() {
         } = JSON.parse(localStorage.getItem(localStorage.key(i)));
         createElem(url, type, text, full);
     }
+    found.innerHTML = localStorage.length;
 }
 
 function hide(elem) {
@@ -119,7 +120,7 @@ function loopLocalStorageSearch() {
         });
     }
     if (count === 0) outpus.innerHTML = "No results... :" + count;
-    else document.getElementById("founded").innerHTML = count;
+    else found.innerHTML = count;
 }
 
 function createElem(url, type, text, full) {
@@ -145,7 +146,7 @@ search.addEventListener("keydown", (e)=> {
         loopLocalStorageSearch();
     } else if (event.key === "Backspace" && event.target.value.length === 0) {
         outpus.innerHTML = "";
-        document.getElementById("founded").innerHTML = "";
+        found.innerHTML = "";
         loopLocalStorage();
     }
 });

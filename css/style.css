@@ -236,6 +236,7 @@ h1 {
 }
 
 #search {
+    position: relative;
     margin: 1em auto 0;
     box-shadow: 0 -1px 3px #333, 0 3px 1px #fff;
     border-radius: 4px;
@@ -244,11 +245,28 @@ h1 {
     width: 300px;
 }
 
+#founded {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    height: 100%;
+    align-items: center;
+    color: #fff;
+    padding: 0 .5em;
+    font-size: 1em;
+}
+
 #search input {
     padding: 4px 12px;
     border: 0;
     background: #C1B1B5;
 }
+
 @media only screen and (max-width: 600px) {
-   #search{margin: 2em auto 0;}
+    #search {
+        margin: 2em auto 0;
+    }
 }

@@ -79,7 +79,7 @@ function extractHostname(url) {
 
 function loopLocalStorage() {
     if (localStorage.length === 0) {
-        outpus.innerHTML = "No results...";
+        outpus.innerHTML = "No links added...";
     }
     for (var i = 0; i < localStorage.length; i++) {
         let {
@@ -118,7 +118,8 @@ function loopLocalStorageSearch() {
             }
         });
     }
-    if (count === 0) outpus.innerHTML = "No results...";
+    if (count === 0) outpus.innerHTML = "No results... :" + count;
+    else document.getElementById("founded").innerHTML = count;
 }
 
 function createElem(url, type, text, full) {
@@ -144,6 +145,7 @@ search.addEventListener("keydown", (e)=> {
         loopLocalStorageSearch();
     } else if (event.key === "Backspace" && event.target.value.length === 0) {
         outpus.innerHTML = "";
+        document.getElementById("founded").innerHTML = "";
         loopLocalStorage();
     }
 });

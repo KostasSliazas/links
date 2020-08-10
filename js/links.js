@@ -137,24 +137,6 @@ function createElem(url, type, text, full) {
     outpus.appendChild(elems);
 }
 
-createLink.addEventListener("click", () => {
-    addStorage();
-    outpus.innerHTML = "";
-    loopLocalStorage();
-});
-
-document.addEventListener("click", showCheckboxes);
-
-closeEx.addEventListener("click", () => {
-    hide(showExport);
-});
-closeBtn.addEventListener("click", () => {
-    hide(links);
-});
-opensBtn.addEventListener("click", () => {
-    hide(links);
-});
-
 search.addEventListener("keydown", (e)=> {
     if (event.key === "Enter" && event.target.value.length > 2) {
         event.preventDefault();
@@ -185,7 +167,11 @@ copyAll.addEventListener("click", (e) => {
 //         localStorage.setItem(k, data[k]);
 //     });
 // }
-
+createLink.addEventListener("click", () => addStorage(), outpus.innerHTML = "", loopLocalStorage());
+document.addEventListener("click", showCheckboxes);
+closeEx.addEventListener("click", () => hide(showExport));
+closeBtn.addEventListener("click", () => hide(links));
+opensBtn.addEventListener("click", () => hide(links));
 addTextOfChecked();
 loopLocalStorage();
 search.focus();

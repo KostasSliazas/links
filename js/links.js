@@ -1,4 +1,5 @@
 //all stuf for chekbox
+// jshint esversion:6
 const checkboxes = document.getElementById("check-boxes");
 const selection = document.getElementById("select");
 const choise = document.getElementById("choises");
@@ -29,7 +30,7 @@ function loopOverInputs() {
     let checked = [];
     [...checkboxes.getElementsByTagName("INPUT")].forEach(e => {
         if (e.checked) checked.push(e.value);
-    })
+    });
     return checked;
 }
 
@@ -78,8 +79,8 @@ function extractHostname(url) {
 
 function loopLocalStorage() {
     if (localStorage.length === 0) {
-        outpus.innerHTML = "No results..."
-    };
+        outpus.innerHTML = "No results...";
+    }
     for (var i = 0; i < localStorage.length; i++) {
         let {
             url,
@@ -158,7 +159,7 @@ copyAll.addEventListener("click", (e) => {
     if (data.value.length > 0) {
         return;
     } else
-        data.value = "var data = JSON.parse(" + JSON.stringify(JSON.stringify(localStorage)) + ");Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});"
+        data.value = "var data = JSON.parse(" + JSON.stringify(JSON.stringify(localStorage)) + ");Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});";
 });
 
 // function importLocalStorage(string) {
@@ -167,7 +168,7 @@ copyAll.addEventListener("click", (e) => {
 //         localStorage.setItem(k, data[k]);
 //     });
 // }
-createLink.addEventListener("click", () => addStorage(), outpus.innerHTML = "", loopLocalStorage());
+createLink.addEventListener("click", () => addStorage(), outpus.innerHTML = "", loopLocalStorage);
 document.addEventListener("click", showCheckboxes);
 closeEx.addEventListener("click", () => hide(showExport));
 closeBtn.addEventListener("click", () => hide(links));

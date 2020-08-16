@@ -277,7 +277,8 @@ h1 {
 }
 
 .label {
-    display: inline-flex;
+    display: flex;
+    flex-direction: column-reverse;
     position: fixed;
     bottom: 0;
     align-items: center;
@@ -287,8 +288,8 @@ h1 {
 }
 
 .label-text {
-    font-size: 12px;
-    margin-left: 10px;
+    font-size: 14px;
+    margin: 4px;
     color: #fff;
 }
 

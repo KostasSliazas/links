@@ -13,6 +13,13 @@
 </head>
 
 <body class="bg">
+  <label class="label">
+    <div class="toggle bg">
+      <input class="toggle-state" type="checkbox" name="check" checked>
+      <div class="indicator"></div>
+    </div>
+    <div class="label-text">Admin</div>
+  </label>
   <div id="search">
     <label for="site-search">search:</label>
     <input type="search" id="site-search" aria-label="Search through site content" placeholder="Search...">
@@ -20,7 +27,7 @@
   </div>
   <button id="copy-links">Export links</button>
   <div id="export-div" style="display: none;" class="bg">
-    <div class="close-ex">&times;</div>
+    <div class="close" id="exit">×</div>
     <h1>Export links</h1>
     <p>Paste code in web browser console and press Enter</p>
     <p>In most cases F12 should open developer tools</p>
@@ -29,7 +36,7 @@
   <button id="open">Add links +</button>
   <div id="links" style="display: none;" class="bg">
     <h1>Add links to LocalStorage</h1>
-    <div class="close">&times;</div>
+    <div class="close" id="exit1">×</div>
     <div class="inside">
       <label for="urls">URL
         <input id="urls" type="text" placeholder="URL" value=""></label>

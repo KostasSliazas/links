@@ -32,7 +32,8 @@ button,
     max-width: 90%;
     min-width: 280px;
     width: 30%;
-    box-shadow: 0 0 10px #000
+    box-shadow: 0 0 10px #000;
+    z-index: 1;
 }
 
 #links input {
@@ -46,8 +47,7 @@ button,
 }
 
 #copy-links,
-#links .close,
-.close-ex,
+.close,
 #open {
     position: absolute;
     right: 0;
@@ -65,13 +65,15 @@ button,
     left: 0;
 }
 
-.close-ex,
 .close {
-    width: 32px;
+    width: 1em;
+    height: 1em;
     line-height: 34px;
-    font-size: 48px;
+    font-size: 2em;
     cursor: pointer;
     color: #fff;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 #selection {
@@ -177,24 +179,33 @@ button,
     width: 100%;
     min-height: 100px;
     margin: auto;
+    position: relative;
 }
 
-#outpus .urls {
-    font-size: 15px;
-    color: #455;
-    padding: 6px 12px;
-}
-
-#outpus span {
+#outpus span:not(:last-of-type) {
     font-size: 10px;
     color: #777;
     padding: 2px 24px;
     text-transform: lowercase;
 }
 
+#outpus span.urls {
+    font-size: 15px;
+    color: #455;
+    padding: 6px 12px;
+}
+
 #export {
     margin: 2em 0;
     box-sizing: border-box;
+}
+
+#outpus span:last-of-type {
+    display: none;
+}
+
+#outpus.checks .close {
+    display: block;
 }
 
 #export,
@@ -263,6 +274,52 @@ h1 {
     padding: 4px 12px;
     border: 0;
     background: #C1B1B5;
+}
+
+.label {
+    display: inline-flex;
+    position: fixed;
+    bottom: 0;
+    align-items: center;
+    cursor: pointer;
+    color: #394a56;
+    z-index: 1;
+}
+
+.label-text {
+    font-size: 12px;
+    margin-left: 10px;
+    color: #fff;
+}
+
+.toggle {
+    isolation: isolate;
+    height: 30px;
+    width: 60px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 0 0 1px #555,
+    0 1px 2px #fff,
+    0 0 1px #fff inset;
+}
+
+.toggle-state {
+    display: none;
+}
+
+.indicator {
+    height: 100%;
+    width: 200%;
+    background: #ecf0f3;
+    border-radius: 15px;
+    transform: translate3d(-75%, 0, 0);
+    transition: transform 0.1s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+}
+
+.toggle-state:checked~.indicator {
+    transform: translate3d(25%, 0, 0);
+    background: #5c2828;
 }
 
 @media only screen and (max-width: 600px) {

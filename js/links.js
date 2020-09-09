@@ -17,7 +17,7 @@
     const found = document.getElementById("founded");
     const docfrag = document.createDocumentFragment();
     const checkeds = document.getElementsByName("check")[0];
-    const classSwich = ()=>{checkeds.checked ?outpus.classList.add("checks") : outpus.classList.remove("checks");};
+    const classSwich = ()=>checkeds.checked ?outpus.classList.add("checks") : outpus.classList.remove("checks");
 
     checkeds.checked = false;
     checkeds.addEventListener("input", classSwich);
@@ -68,7 +68,7 @@
     function addStorage() {
         if ("localStorage" in window) {
             if (setLinks()) {
-                var key = setLinks().url;
+                var key = setLinks().full;
                 var data = JSON.stringify(setLinks());
                 localStorage.setItem(key, data);
             }

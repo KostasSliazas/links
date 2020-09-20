@@ -162,7 +162,7 @@
         docfrag.appendChild(elems);
     }
 
-    search.addEventListener("keydown", (e) => {
+    search.addEventListener("keydown", (event) => {
         if (event.key === "Enter" && event.target.value.length > 2) {
             event.preventDefault();
             loopLocalStorageSearch();
@@ -173,7 +173,7 @@
         }
     });
 
-    search.addEventListener("input", (e) => {
+    search.addEventListener("input", (event) => {
         if (event.target.value.length > 2)
             loopLocalStorageSearch();
     });

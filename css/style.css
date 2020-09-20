@@ -10,11 +10,11 @@ body {
 
 button,
 .bg {
-  background: radial-gradient(circle, transparent 70%, #aaa 100%) fixed,
-   repeating-linear-gradient(45deg, rgba(200, 200, 200, .1) 480px, rgba(200, 200, 200, .3) 481px, rgba(200, 200, 200, .5) 960px, rgba(200, 200, 200, .2) 961px),
-   repeating-linear-gradient(135deg, rgba(200, 200, 200, .2) 480px, rgba(200, 200, 200, .5) 481px, rgba(200, 200, 200, .2) 960px, rgba(200, 200, 200, .1) 961px),
-   url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAV1BMVEUAAAAAAAAICAgQEBAZGRkhISEpKSkxMTFCQkJKSkpSUlJaWlpjY2Nra2tzc3N7e3uEhISMjIyUlJScnJylpaWtra21tbW9vb3FxcXe3t7m5ubv7+////+kcD+qAAAAHXRSTlMAHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHzgkAGUAAABjSURBVBgZncEBAkJAEADAoRxyOORK9f939oedMXGS2Zk4KfxEvLiYGWgZKVQRlUxDR0fixiXizkZmoKEh0Yjo2fiy0zPQUkSsHMwcJCqJTUTHSqLw4cHIIuLNyM6TTGXhEPAHKRgDTFwqlV8AAAAASUVORK5CYII=),
-   linear-gradient(0deg, #a87575, #e0e0ca) fixed;
+    background: radial-gradient(circle, transparent 70%, #aaa 100%) fixed,
+        repeating-linear-gradient(45deg, rgba(200, 200, 200, .1) 480px, rgba(200, 200, 200, .3) 481px, rgba(200, 200, 200, .5) 960px, rgba(200, 200, 200, .2) 961px),
+        repeating-linear-gradient(135deg, rgba(200, 200, 200, .2) 480px, rgba(200, 200, 200, .5) 481px, rgba(200, 200, 200, .2) 960px, rgba(200, 200, 200, .1) 961px),
+        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAV1BMVEUAAAAAAAAICAgQEBAZGRkhISEpKSkxMTFCQkJKSkpSUlJaWlpjY2Nra2tzc3N7e3uEhISMjIyUlJScnJylpaWtra21tbW9vb3FxcXe3t7m5ubv7+////+kcD+qAAAAHXRSTlMAHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHzgkAGUAAABjSURBVBgZncEBAkJAEADAoRxyOORK9f939oedMXGS2Zk4KfxEvLiYGWgZKVQRlUxDR0fixiXizkZmoKEh0Yjo2fiy0zPQUkSsHMwcJCqJTUTHSqLw4cHIIuLNyM6TTGXhEPAHKRgDTFwqlV8AAAAASUVORK5CYII=),
+        linear-gradient(0deg, #a87575, #e0e0ca) fixed;
 }
 
 * {
@@ -170,7 +170,6 @@ button,
     overflow: hidden;
     text-align: center;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
     border-radius: 4px;
@@ -181,7 +180,8 @@ button,
     word-break: break-word;
     height: 100%;
     width: 100%;
-    min-height: 100px;
+    min-height: 90px;
+    max-height: 90px;
     margin: auto;
     position: relative;
 }
@@ -191,12 +191,18 @@ button,
     color: #777;
     padding: 2px 24px;
     text-transform: lowercase;
+    overflow: hidden;
 }
 
 #outpus span.urls {
-    font-size: 15px;
+    font-size: 12px;
     color: #455;
     padding: 6px 12px;
+    background: #f8ede7;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 #export {
@@ -305,8 +311,8 @@ h1 {
     overflow: hidden;
     border: 1px solid #eee;
     box-shadow: 0 0 0 1px #555,
-    0 1px 2px #fff,
-    0 0 1px #fff inset;
+        0 1px 2px #fff,
+        0 0 1px #fff inset;
 }
 
 .toggle-state {

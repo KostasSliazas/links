@@ -1,28 +1,24 @@
-html,
-body {
-    height: 100%;
+body,
+html {
+    height: 100%
 }
 
 body {
     margin: 0;
-    font: 16px/1em Arial, Helvetica, sans-serif;
+    font: 16px/1em Arial, Helvetica, sans-serif
 }
 
-button,
-.bg {
-    background: radial-gradient(circle, transparent 70%, #aaa 100%) fixed,
-        repeating-linear-gradient(45deg, rgba(200, 200, 200, .1) 480px, rgba(200, 200, 200, .3) 481px, rgba(200, 200, 200, .5) 960px, rgba(200, 200, 200, .2) 961px),
-        repeating-linear-gradient(135deg, rgba(200, 200, 200, .2) 480px, rgba(200, 200, 200, .5) 481px, rgba(200, 200, 200, .2) 960px, rgba(200, 200, 200, .1) 961px),
-        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAV1BMVEUAAAAAAAAICAgQEBAZGRkhISEpKSkxMTFCQkJKSkpSUlJaWlpjY2Nra2tzc3N7e3uEhISMjIyUlJScnJylpaWtra21tbW9vb3FxcXe3t7m5ubv7+////+kcD+qAAAAHXRSTlMAHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHzgkAGUAAABjSURBVBgZncEBAkJAEADAoRxyOORK9f939oedMXGS2Zk4KfxEvLiYGWgZKVQRlUxDR0fixiXizkZmoKEh0Yjo2fiy0zPQUkSsHMwcJCqJTUTHSqLw4cHIIuLNyM6TTGXhEPAHKRgDTFwqlV8AAAAASUVORK5CYII=),
-        linear-gradient(0deg, #a87575, #e0e0ca) fixed;
+.bg,
+button {
+    background: radial-gradient(circle, transparent 70%, #aaa 100%) fixed, repeating-linear-gradient(45deg, rgba(200, 200, 200, .1) 480px, rgba(200, 200, 200, .3) 481px, rgba(200, 200, 200, .5) 960px, rgba(200, 200, 200, .2) 961px), repeating-linear-gradient(135deg, rgba(200, 200, 200, .2) 480px, rgba(200, 200, 200, .5) 481px, rgba(200, 200, 200, .2) 960px, rgba(200, 200, 200, .1) 961px), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAMAAADXqc3KAAAAV1BMVEUAAAAAAAAICAgQEBAZGRkhISEpKSkxMTFCQkJKSkpSUlJaWlpjY2Nra2tzc3N7e3uEhISMjIyUlJScnJylpaWtra21tbW9vb3FxcXe3t7m5ubv7+////+kcD+qAAAAHXRSTlMAHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHzgkAGUAAABjSURBVBgZncEBAkJAEADAoRxyOORK9f939oedMXGS2Zk4KfxEvLiYGWgZKVQRlUxDR0fixiXizkZmoKEh0Yjo2fiy0zPQUkSsHMwcJCqJTUTHSqLw4cHIIuLNyM6TTGXhEPAHKRgDTFwqlV8AAAAASUVORK5CYII=), linear-gradient(0deg, #a87575, #e0e0ca) fixed
 }
 
 * {
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
-#links,
-#export-div {
+#export-div,
+#links {
     margin: 0 auto;
     position: fixed;
     padding: 1em 2em 2em;
@@ -37,11 +33,11 @@ button,
     min-width: 280px;
     width: 30%;
     box-shadow: 0 0 10px #000;
-    z-index: 1;
+    z-index: 1
 }
 
 #links input {
-    margin: 0 0 12px 0;
+    margin: 0 0 12px 0
 }
 
 #links .inside {
@@ -51,8 +47,8 @@ button,
 }
 
 #copy-links,
-.close,
-#open {
+#open,
+.close {
     position: absolute;
     right: 0;
     top: 0;
@@ -62,11 +58,11 @@ button,
     border-radius: 4px;
     color: #fff;
     text-align: center;
-    background: #5c2828;
+    background: #5c2828
 }
 
 #copy-links {
-    left: 0;
+    left: 0
 }
 
 .close {
@@ -77,11 +73,11 @@ button,
     cursor: pointer;
     color: #fff;
     display: block;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif
 }
 
 #selection {
-    position: relative;
+    position: relative
 }
 
 #select {
@@ -143,7 +139,7 @@ button,
     min-height: 2em;
     text-transform: lowercase;
     color: #fff;
-    font-size: 11px;
+    font-size: 11px
 }
 
 #choises p {
@@ -162,11 +158,11 @@ button,
     margin: 1em auto;
     border-radius: 4px;
     box-shadow: 0 2px 1px #000, 0 -1px 1px #fff;
-    background-attachment: scroll;
+    background-attachment: scroll
 }
 
 #outpus a {
-    background: linear-gradient(0deg, #f3f3f3, #ffffff);
+    background: linear-gradient(0deg, #f3f3f3, #fff);
     overflow: hidden;
     text-align: center;
     display: flex;
@@ -178,48 +174,47 @@ button,
     text-decoration: none;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     word-break: break-word;
-    height: 100%;
     width: 100%;
     height: 95px;
     margin: auto;
-    position: relative;
+    position: relative
 }
 
 #outpus span:not(:last-of-type) {
-    font-size: 10px;
-    color: #777;
+    font-size: 12px;
+    color: #555;
     padding: 2px 24px;
     text-transform: lowercase;
-    overflow: hidden;
+    overflow: hidden
 }
 
 #outpus span.urls {
-    font-size: 12px;
+    font-size: 13px;
     color: #455;
     padding: 6px 12px;
-    background: #f8ede7;
+    background: #f7f7f7;
     width: 100%;
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow: hidden
 }
 
 #export {
     margin: 2em 0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 
 #outpus span:last-of-type {
-    display: none;
+    display: none
 }
 
 #outpus.checks .close {
-    display: block;
+    display: block
 }
 
-#export,
 #aditions,
 #create-link,
+#export,
 #site-search,
 #urls {
     width: 100%
@@ -228,15 +223,15 @@ button,
 label {
     display: flex;
     font-size: 0;
-    line-height: 1;
+    line-height: 1
 }
 
 button {
     min-height: 2em;
     border-radius: 4px;
     box-shadow: 0 2px 2px #000;
-    border: 1px solid #8C626E;
-    opacity: 0.8;
+    border: 1px solid #8c626e;
+    opacity: .8;
     color: #fff;
     background: #5c2828;
     font-weight: 900;
@@ -244,7 +239,7 @@ button {
 }
 
 button:hover {
-    opacity: 1;
+    opacity: 1
 }
 
 h1 {
@@ -252,7 +247,7 @@ h1 {
     font-size: 16px;
     text-align: center;
     color: #fff;
-    text-shadow: 0 1px 0 #5c2828;
+    text-shadow: 0 1px 0 #5c2828
 }
 
 #search {
@@ -262,7 +257,7 @@ h1 {
     border-radius: 4px;
     overflow: hidden;
     max-width: 90%;
-    width: 300px;
+    width: 300px
 }
 
 #founded {
@@ -274,66 +269,63 @@ h1 {
     margin: auto;
     height: 100%;
     align-items: center;
-    color: #fff;
+    /*! color:#fff; */
     padding: 0 .5em;
-    font-size: 1em;
+    font-size: 1em
 }
 
 #search input {
     padding: 4px 12px;
     border: 0;
-    background: #C1B1B5;
+    background: #fbfbfb;
 }
 
-.label {
+.toggle label {
     display: flex;
     flex-direction: column-reverse;
-    position: fixed;
-    bottom: 0;
     align-items: center;
     cursor: pointer;
+    height: 100%;
+    width: 100%;
     color: #394a56;
-    z-index: 1;
-}
-
-.label-text {
-    font-size: 10px;
-    margin: 4px;
-    color: #fff;
 }
 
 .toggle {
+    position: fixed;
+    bottom: 0;
+    z-index: 1;
     isolation: isolate;
     height: 30px;
     width: 60px;
     border-radius: 15px;
     overflow: hidden;
     border: 1px solid #eee;
-    box-shadow: 0 0 0 1px #555,
-        0 1px 2px #fff,
-        0 0 1px #fff inset;
+    box-shadow: 0 0 0 1px #555, 0 1px 2px #fff, 0 0 1px #fff inset;
+    margin: 4px;
 }
 
 .toggle-state {
-    display: none;
+    display: none
 }
 
 .indicator {
     height: 100%;
-    width: 200%;
+    width:50%;
     background: #ecf0f3;
     border-radius: 15px;
-    transform: translate3d(-75%, 0, 0);
-    transition: transform 0.1s cubic-bezier(0.85, 0.05, 0.18, 1.35);
+    transform: translate3d(-50%, 0, 0);
+    transition: transform .1s cubic-bezier(.85, .05, .18, 1.35);
+    position: absolute;
+    top: 0;
 }
 
 .toggle-state:checked~.indicator {
-    transform: translate3d(25%, 0, 0);
-    background: #5c2828;
+    transform: translate3d(50%, 0, 0);
+    background: #5c2828
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width:600px) {
     #search {
-        margin: 2em auto 0;
+        margin: 2em auto 0
     }
 }

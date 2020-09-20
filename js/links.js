@@ -68,7 +68,7 @@
     function addStorage() {
         if ("localStorage" in window) {
             if (setLinks()) {
-                var key = setLinks().full;
+                var key = JSON.stringify(setLinks().full);
                 var data = JSON.stringify(setLinks());
                 localStorage.setItem(key, data);
             }
@@ -126,8 +126,8 @@
             });
         }
         outpus.appendChild(docfrag);
-        if (count === 0) outpus.innerHTML = "No results... :" + count;
-        else found.innerHTML = count;
+        if (count === 0) outpus.innerHTML = "No results...";
+        found.innerHTML = count;
     }
 
     function removeThis() {

@@ -31,8 +31,7 @@ button {
     border-radius: 4px;
     min-height: 200px;
     max-width: 90%;
-    min-width: 280px;
-    width: 30%;
+    min-width: 400px;
     box-shadow: 0 0 10px #000;
     z-index: 1
 }
@@ -124,7 +123,10 @@ button {
     line-height: 1;
     padding: 4px;
     font-family: Arial, Helvetica, sans-serif;
-    box-shadow: 1px 1px 0 0 #aaa
+    box-shadow: 1px 1px 0 0 #aaa;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 #check-boxes:not(label) {
@@ -331,5 +333,9 @@ h1 {
 @media only screen and (max-width:600px) {
     #search {
         margin: 2em auto 0
+    }
+    #export-div,
+    #links {
+        width: 100%;
     }
 }

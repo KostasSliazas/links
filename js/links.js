@@ -68,7 +68,7 @@
     function addStorage() {
         if ("localStorage" in window) {
             if (setLinks()) {
-                var key = JSON.stringify(setLinks().full);
+                var key = JSON.stringify(setLinks().full).replace(/['"]+/g, '');
                 var data = JSON.stringify(setLinks());
                 localStorage.setItem(key, data);
             }
@@ -131,12 +131,12 @@
     }
 
     function removeThis() {
-        var o = confirm("Are you sure you want to remove?");
-        if (o) {
+        // var o = confirm("Are you sure you want to remove?");
+        // if (o) {
             localStorage.removeItem(this.firstChild.textContent);
             outpus.innerHTML = "";
             loopLocalStorage();
-        }
+        // }
         return false;
     }
 

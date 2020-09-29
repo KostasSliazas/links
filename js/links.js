@@ -1,4 +1,3 @@
-//all stuf for chekbox
 // jshint esversion:6
 (function () {
     const checkboxes = document.getElementById("check-boxes");
@@ -68,8 +67,8 @@
     function addStorage() {
         if ("localStorage" in window) {
             if (setLinks()) {
-                var key = JSON.stringify(setLinks().full).replace(/['"]+/g, '');
-                var data = JSON.stringify(setLinks());
+                let key = JSON.stringify(setLinks().full).replace(/['"]+/g, '');
+                let data = JSON.stringify(setLinks());
                 localStorage.setItem(key, data);
             }
         } else {
@@ -78,7 +77,7 @@
     }
 
     function extractHostname(url) {
-        var hostname;
+        let hostname;
         if (url.indexOf("//") > -1) {
             hostname = url.split('/')[2];
         } else {
@@ -92,7 +91,7 @@
     function loopLocalStorage() {
         if (localStorage.length === 0)
             outpus.innerHTML = "No links added...";
-        for (var i = 0; i < localStorage.length; i++) {
+        for (let i = 0; i < localStorage.length; i++) {
             let {
                 url,
                 type,
@@ -131,7 +130,7 @@
     }
 
     function removeThis() {
-        // var o = confirm("Are you sure you want to remove?");
+        // let o = confirm("Are you sure you want to remove?");
         // if (o) {
             localStorage.removeItem(this.firstChild.textContent);
             outpus.innerHTML = "";
@@ -184,11 +183,11 @@
         if (data.value.length > 0) {
             return;
         } else
-            data.value = "var data = JSON.parse(" + JSON.stringify(JSON.stringify(localStorage)) + ");Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});";
+            data.value = "let data = JSON.parse(" + JSON.stringify(JSON.stringify(localStorage)) + ");Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});";
     });
 
     // function importLocalStorage(string) {
-    //     var data = JSON.parse(string);
+    //     let data = JSON.parse(string);
     //     Object.keys(data).forEach(function (k) {
     //         localStorage.setItem(k, data[k]);
     //     });

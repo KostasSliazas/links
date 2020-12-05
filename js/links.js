@@ -131,7 +131,7 @@
   function removeThis () {
     const o = window.confirm('Are you sure you want to remove?')
     if (o) {
-      window.localStorage.removeItem(this.firstChild.textContent)
+      window.localStorage.removeItem(this.href)
       outpus.innerHTML = ''
       loopLocalStorage()
     }

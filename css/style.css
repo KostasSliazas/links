@@ -35,6 +35,7 @@ button {
   box-shadow: 0 0 10px #000;
   z-index: 1;
   overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 #links input {

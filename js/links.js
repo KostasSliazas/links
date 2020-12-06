@@ -52,7 +52,7 @@
 
   function setLinks () {
     const url = document.getElementById('urls').value
-    if (url.length > 2) {
+    if (url.length > 0) {
       const fav = extractHostname(url)
       const createLinkObject = {
         text: adition.value,
@@ -161,7 +161,7 @@
   }
 
   search.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' && event.target.value.length > 2) {
+    if (event.key === 'Enter' && event.target.value.length > 0) {
       event.preventDefault()
       loopLocalStorageSearch()
     } else if (event.key === 'Backspace' && event.target.value.length === 0) {
@@ -172,7 +172,7 @@
   })
 
   search.addEventListener('input', (event) => {
-    if (event.target.value.length > 2) { loopLocalStorageSearch() }
+    if (event.target.value.length >= 0) { loopLocalStorageSearch() }
   })
 
   copyAll.addEventListener('click', (e) => {

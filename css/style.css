@@ -21,7 +21,7 @@ button {
 #links {
   margin: 0 auto;
   position: fixed;
-  padding: 1em 2em 2em;
+  padding: 1em;
   left: 50%;
   top: 4em;
   transform: translateX(-50%);
@@ -33,7 +33,8 @@ button {
   min-width: 280px;
   width: 30%;
   box-shadow: 0 0 10px #000;
-  z-index: 1
+  z-index: 1;
+  overflow-y: auto;
 }
 
 #links input {

@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  font: 16px/1em Arial, Helvetica, sans-serif
+  font: 16px/1.5em Arial, Helvetica, sans-serif
 }
 
 .bg,
@@ -33,14 +33,14 @@ button {
 #links {
   margin: 0 auto;
   position: fixed;
-  padding: 1em;
+  padding: 0.4em 1em;
   left: 50%;
   top: 4em;
   transform: translateX(-50%);
   border: 1px solid #aaa;
   background-position: 0 36px;
   border-radius: 4px;
-  min-height: 200px;
+  min-height: 300px;
   max-width: 90%;
   min-width: 280px;
   width: 30%;
@@ -66,7 +66,6 @@ button {
   position: absolute;
   right: 0;
   top: 0;
-  background: 0;
   border: 0;
   box-shadow: 0 0 0 1px #555, 0 1px 2px #fff, 0 0 1px #fff inset;
   border-radius: 4px;
@@ -150,10 +149,10 @@ button {
   box-sizing: border-box;
   overflow-x: auto;
   scrollbar-width: thin;
-  min-height: 2em;
   text-transform: lowercase;
-  color: #fff;
-  font-size: 11px
+  line-height: 2;
+  font-size: 12px;
+  min-height: 24px;
 }
 
 #choises p {
@@ -234,7 +233,13 @@ button {
 #urls {
   width: 100%
 }
-
+#create-link {
+  position: absolute;
+  bottom: 12px;
+  display: block;
+  left: 16px;
+  width: calc(100% - 32px);
+}
 label {
   display: flex;
   font-size: 0;

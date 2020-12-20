@@ -68,7 +68,7 @@
   function addStorage () {
     if ('localStorage' in window) {
       if (setLinks()) {
-        const key = JSON.stringify(setLinks().full)
+        const key = JSON.stringify(setLinks().full).slice(1, -1)
         const data = JSON.stringify(setLinks())
         window.localStorage.setItem(key, data)
       }
@@ -129,12 +129,10 @@
   }
 
   function removeThis () {
-    const o = window.confirm('Are you sure you want to remove?')
-    if (o) {
-      window.localStorage.removeItem(this.href)
-      outpus.innerHTML = ''
-      loopLocalStorage()
-    }
+    window.localStorage.removeItem(this.href)
+    console.log(this.href)
+    outpus.innerHTML = ''
+    loopLocalStorage()
     return false
   }
 

@@ -91,6 +91,7 @@
   }
 
   function loopLocalStorage () {
+    search.focus()
     outpus.innerHTML = ''
     if (window.localStorage.length === 0) { outpus.innerHTML = 'No links added...' }
     for (let i = 0; i < window.localStorage.length; i++) {
@@ -200,5 +201,4 @@
   opensBtn.addEventListener('click', () => hide(links))
   addTextOfChecked()
   loopLocalStorage()
-  search.focus()
 }())

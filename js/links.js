@@ -91,6 +91,7 @@
   }
 
   function loopLocalStorage () {
+    outpus.innerHTML = ''
     if (window.localStorage.length === 0) { outpus.innerHTML = 'No links added...' }
     for (let i = 0; i < window.localStorage.length; i++) {
       const {
@@ -102,9 +103,9 @@
       createElem(url, type, text, full)
     }
     outpus.appendChild(docfrag)
-    found.innerHTML = window.localStorage.length
+    const total = window.localStorage.length
+    found.innerHTML = total + '/' + total
   }
-
   function loopLocalStorageSearch () {
     outpus.innerHTML = ''
     let count = 0
@@ -126,12 +127,11 @@
     }
     outpus.appendChild(docfrag)
     if (count === 0) outpus.innerHTML = 'No results...'
-    found.innerHTML = count
+    found.innerHTML = count + '/' + window.localStorage.length
   }
 
   function removeThis () {
     window.localStorage.removeItem(this.href)
-    outpus.innerHTML = ''
     loopLocalStorage()
     return false
   }
@@ -163,7 +163,6 @@
       event.preventDefault()
       loopLocalStorageSearch()
     } else if (event.key === 'Backspace' && event.target.value.length === 0) {
-      outpus.innerHTML = ''
       found.innerHTML = ''
       loopLocalStorage()
     }
@@ -189,7 +188,10 @@
   // }
   createLink.addEventListener('click', () => {
     addStorage()
-    outpus.innerHTML = ''
+    loopLocalStorage()
+  })
+  document.addEventListener('dblclick', () => {
+    search.value = ''
     loopLocalStorage()
   })
   document.addEventListener('click', showCheckboxes)

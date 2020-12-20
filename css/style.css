@@ -200,18 +200,22 @@ button {
   color: #555;
   padding: 2px 24px;
   text-transform: lowercase;
-  overflow: hidden
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 #outpus span.urls {
   font-size: 13px;
   color: #455;
-  padding: 6px 12px;
+  padding: 4px 12px;
   background: #f7f7f7;
   width: 100%;
   white-space: nowrap;
   text-overflow: ellipsis;
   font-weight: 700;
+  border-bottom: 1px solid #eee;
   overflow: hidden
 }
 

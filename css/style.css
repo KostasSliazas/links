@@ -71,13 +71,15 @@ button {
   border-radius: 4px;
   color: #fff;
   text-align: center;
-  background: #5c2828
+  background: #5c2828;
 }
 
 #copy-links {
   left: 0
 }
-
+#urls {
+  font-weight: 700;
+}
 .close {
   width: 1em;
   height: 1em;

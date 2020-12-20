@@ -23,7 +23,7 @@
   checkeds.addEventListener('input', classSwich)
 
   function showCheckboxes (e) {
-    addTextOfChecked()
+    if (e.target.id === 'create-link') return
     if (e.target.id === 'select' && !(selection.classList.contains('open'))) {
       selection.classList.add('open')
       checkboxes.style.display = 'block'
@@ -31,6 +31,7 @@
       if (e.target.tagName === 'LABEL' || e.target.tagName === 'INPUT') return
       selection.classList.remove('open')
       checkboxes.style.display = 'none'
+      addTextOfChecked()
     }
   }
 
@@ -42,8 +43,8 @@
     return checked
   }
 
-  function addTextOfChecked () {
-    choise.innerHTML = loopOverInputs().join(', ')
+  function addTextOfChecked (m) {
+    choise.innerHTML = m || loopOverInputs().join(', ')
   }
 
   function hide (e) {
@@ -61,7 +62,7 @@
         type: loopOverInputs()
       }
       return createLinkObject
-    }
+    } else { addTextOfChecked('No URL defined') }
     return false
   }
 
@@ -130,7 +131,6 @@
 
   function removeThis () {
     window.localStorage.removeItem(this.href)
-    console.log(this.href)
     outpus.innerHTML = ''
     loopLocalStorage()
     return false

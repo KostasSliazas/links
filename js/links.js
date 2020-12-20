@@ -111,25 +111,25 @@
   function loopLocalStorageSearch () {
     outpus.innerHTML = ''
     let count = 0
-    for (let i = 0; i < window.localStorage.length; i++) {
-      const {
-        url,
-        type,
-        full,
-        text
-      } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
-      let dats = url
-      type.concat(text.split(), url.split()).forEach(e => {
-        if (e.toLowerCase().includes(search.value.toLowerCase()) && dats === url) {
-          createElem(url, type, text, full)
-          count++
-          dats = ''
+    for (let i = 0, len = window.localStorage.length; i < len; i++) {
+      const { full, text, type, url } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+      const values = type.concat(text.split(), url.split())
+      const isInarray = values.map(e => {
+        if (e.toLowerCase().includes(search.value.toLowerCase())) {
+          return true
         }
+        return false
       })
+      if (isInarray.includes(true)) {
+        count++
+        createElem(url, type, text, full)
+      }
     }
     outpus.appendChild(docfrag)
-    if (count === 0) outpus.innerHTML = 'No results...'
     found.innerHTML = count + '/' + window.localStorage.length
+    if (count === 0) {
+      outpus.innerHTML = 'No results...'
+    }
   }
 
   function removeThis () {

@@ -92,6 +92,7 @@
 
   function loopLocalStorage () {
     search.focus()
+    search.value = ''
     outpus.innerHTML = ''
     if (window.localStorage.length === 0) { outpus.innerHTML = 'No links added...' }
     for (let i = 0; i < window.localStorage.length; i++) {
@@ -166,7 +167,7 @@
     } else if (event.key === 'Backspace' && event.target.value.length === 0) {
       found.innerHTML = ''
       loopLocalStorage()
-    }
+    } else return false
   })
 
   search.addEventListener('input', (event) => {
@@ -191,10 +192,7 @@
     addStorage()
     loopLocalStorage()
   })
-  document.addEventListener('dblclick', () => {
-    search.value = ''
-    loopLocalStorage()
-  })
+  document.addEventListener('dblclick', loopLocalStorage)
   document.addEventListener('click', showCheckboxes)
   closeEx.addEventListener('click', () => hide(showExport))
   closeBtn.addEventListener('click', () => hide(links))

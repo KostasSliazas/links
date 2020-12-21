@@ -17,7 +17,7 @@ html {
 
 body {
   margin: 0;
-  font: 16px/1.5em Arial, Helvetica, sans-serif
+  font: 16px/1.5 Arial, Helvetica, sans-serif
 }
 
 .bg,
@@ -163,16 +163,18 @@ button {
   background: #fafafa;
   box-shadow: 0 0 1px #aaa
 }
-
+#wrap{
+  min-height: calc(100vh - 48px);
+  box-shadow: 0 2px 1px #000, 0 -1px 1px #fff;
+  max-width: 1100px;
+  margin: 6px auto;
+}
 #outpus {
   display: grid;
   gap: 1em;
   padding: 1em;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  max-width: 1100px;
-  margin: 1em auto;
   border-radius: 4px;
-  box-shadow: 0 2px 1px #000, 0 -1px 1px #fff;
   background-attachment: scroll
 }
 
@@ -278,32 +280,27 @@ h1 {
 
 #search {
   position: relative;
-  margin: 1em auto 0;
+  margin: 6px auto 0;
   box-shadow: 0 -1px 3px #333, 0 3px 1px #fff;
   border-radius: 4px;
   overflow: hidden;
   max-width: 90%;
-  width: 300px
+  width: 300px;
 }
 
 #founded {
   position: absolute;
   right: 0;
   top: 0;
-  display: flex;
-  justify-content: center;
   margin: auto;
-  height: 100%;
-  align-items: center;
-  /*! color:#fff; */
   padding: 0 .5em;
-  font-size: 1em
 }
 
 #search input {
-  padding: 4px 12px;
+  padding: 2px 4px;
   border: 0;
   background: #fbfbfb;
+  font-size: 14px;
 }
 
 .toggle label {

@@ -143,7 +143,7 @@
     const types = document.createElement('span')
     const texts = document.createElement('span')
     const urls = document.createElement('span')
-    const close = document.createElement('span')
+    const close = document.createElement('div')
     close.className = 'close'
     close.innerHTML = '×'
     close.onclick = removeThis.bind(elems)

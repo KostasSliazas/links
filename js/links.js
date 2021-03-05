@@ -1,6 +1,7 @@
 // all stuf for chekbox
 // jshint esversion:6
-;(function () {
+;
+(function () {
   const checkboxes = document.getElementById('check-boxes')
   const selection = document.getElementById('select')
   const choise = document.getElementById('choises')
@@ -12,6 +13,7 @@
   const adition = document.getElementById('aditions')
   const search = document.getElementById('site-search')
   const copyAll = document.getElementById('copy-links')
+  const exportJson = document.getElementById('export-json')
   const showExport = document.getElementById('export-div')
   const links = document.getElementById('links')
   const found = document.getElementById('founded')
@@ -62,7 +64,9 @@
         type: loopOverInputs()
       }
       return createLinkObject
-    } else { addTextOfChecked('No URL defined') }
+    } else {
+      addTextOfChecked('No URL defined')
+    }
     return false
   }
 
@@ -94,7 +98,9 @@
     search.focus()
     search.value = ''
     outpus.innerHTML = ''
-    if (window.localStorage.length === 0) { outpus.innerHTML = 'No links added...' }
+    if (window.localStorage.length === 0) {
+      outpus.innerHTML = 'No links added...'
+    }
     for (let i = 0; i < window.localStorage.length; i++) {
       const {
         url,
@@ -108,11 +114,17 @@
     const total = window.localStorage.length
     found.innerHTML = total + '/' + total
   }
+
   function loopLocalStorageSearch () {
     outpus.innerHTML = ''
     let count = 0
     for (let i = 0, len = window.localStorage.length; i < len; i++) {
-      const { full, text, type, url } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+      const {
+        full,
+        text,
+        type,
+        url
+      } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
       const values = type.concat(text.split(), url.split())
       const isInarray = values.map(e => {
         if (e.toLowerCase().includes(search.value.toLowerCase())) {
@@ -143,7 +155,7 @@
     const types = document.createElement('span')
     const texts = document.createElement('span')
     const urls = document.createElement('span')
-    const close = document.createElement('div')
+    const close = document.createElement('span')
     close.className = 'close'
     close.innerHTML = '×'
     close.onclick = removeThis.bind(elems)
@@ -171,7 +183,9 @@
   })
 
   search.addEventListener('input', (event) => {
-    if (event.target.value.length >= 0) { loopLocalStorageSearch() }
+    if (event.target.value.length >= 0) {
+      loopLocalStorageSearch()
+    }
   })
 
   copyAll.addEventListener('click', (e) => {
@@ -179,9 +193,37 @@
     hide(showExport)
     if (data.value.length > 0) {
       return false
-    } else { data.value = 'var data = JSON.parse(' + JSON.stringify(JSON.stringify(window.localStorage)) + ');Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});' }
+    } else {
+      data.value = 'var data = JSON.parse(' + JSON.stringify(JSON.stringify(window.localStorage)) + ');Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});'
+    }
   })
 
+  const saveData = (function () {
+    const a = document.createElement('a')
+    // document.body.appendChild(a);
+    // a.style = "display: none";
+    return function (data, fileName) {
+      const json = JSON.stringify(data)
+      const blob = new window.Blob([json], {
+        type: 'octet/stream'
+      })
+      const url = window.URL.createObjectURL(blob)
+      a.href = url
+      a.download = fileName
+      a.click()
+      window.URL.revokeObjectURL(url)
+    }
+  }())
+
+  const fileName = `localStorage${dateGet()}.json`
+
+  function dateGet () {
+    const dateObj = new Date()
+    const month = dateObj.getUTCMonth() + 1 // months from 1-12
+    const day = dateObj.getUTCDate()
+    const year = dateObj.getUTCFullYear()
+    return year + '/' + month + '/' + day
+  }
   // function importLocalStorage(string) {
   //     var data = JSON.parse(string);
   //     Object.keys(data).forEach(function (k) {
@@ -192,6 +234,16 @@
     addStorage()
     loopLocalStorage()
   })
+
+  function loopStorageItems () {
+    const data = []
+    for (let i = 0; i < window.localStorage.length; i++) {
+      data.push(JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+    }
+    return data
+  }
+
+  exportJson.addEventListener('click', () => saveData(loopStorageItems(), fileName))
   document.addEventListener('dblclick', loopLocalStorage)
   document.addEventListener('click', showCheckboxes)
   closeEx.addEventListener('click', () => hide(showExport))

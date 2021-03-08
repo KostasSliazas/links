@@ -271,7 +271,6 @@ button {
   box-shadow: 0 2px 2px #000;
   border: 1px solid #8c626e;
   opacity: .8;
-  max-width: 230px;
   block-size: 32px;
   height: 32px;
   color: #fff;
@@ -288,6 +287,8 @@ button:hover {
   display: flex;
   flex-direction: column;
   gap: 1em;
+  white-space: nowrap;
+  padding: 1em 0;
 }
 
 h1 {

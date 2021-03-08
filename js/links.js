@@ -100,6 +100,7 @@
     outpus.innerHTML = ''
     if (window.localStorage.length === 0) {
       outpus.innerHTML = 'No links added...'
+      return
     }
     for (let i = 0; i < window.localStorage.length; i++) {
       const {
@@ -251,4 +252,28 @@
   opensBtn.addEventListener('click', () => hide(links))
   addTextOfChecked()
   loopLocalStorage()
+
+  function readSingleFile (e) {
+    const file = e.target.files[0]
+    if (!file) {
+      return
+    }
+    const reader = new window.FileReader()
+    reader.onload = function (e) {
+      const contents = e.target.result
+      displayContents(contents)
+    }
+    reader.readAsText(file)
+  }
+
+  function displayContents (data) {
+    const json = JSON.parse(data)
+    for (let i = 0; i < json.length; i++) {
+      window.localStorage.setItem(json[i].full, JSON.stringify(json[i]))
+    }
+    loopLocalStorage()
+  }
+
+  document.getElementById('file-input')
+    .addEventListener('change', readSingleFile, false)
 }())

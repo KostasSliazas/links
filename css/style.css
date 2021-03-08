@@ -256,7 +256,7 @@ label {
   font-size: 0;
   line-height: 1
 }
-
+input[type=file],
 button {
   min-height: 2em;
   border-radius: 4px;

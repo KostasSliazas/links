@@ -190,19 +190,11 @@
   })
 
   copyAll.addEventListener('click', (e) => {
-    const data = document.getElementById('export')
     hide(showExport)
-    if (data.value.length > 0) {
-      return false
-    } else {
-      data.value = 'var data = JSON.parse(' + JSON.stringify(JSON.stringify(window.localStorage)) + ');Object.keys(data).forEach(function (k) {localStorage.setItem(k, data[k]);});'
-    }
   })
 
   const saveData = (function () {
     const a = document.createElement('a')
-    // document.body.appendChild(a);
-    // a.style = "display: none";
     return function (data, fileName) {
       const json = JSON.stringify(data)
       const blob = new window.Blob([json], {
@@ -225,12 +217,7 @@
     const year = dateObj.getUTCFullYear()
     return year + '/' + month + '/' + day
   }
-  // function importLocalStorage(string) {
-  //     var data = JSON.parse(string);
-  //     Object.keys(data).forEach(function (k) {
-  //         localStorage.setItem(k, data[k]);
-  //     });
-  // }
+
   createLink.addEventListener('click', () => {
     addStorage()
     loopLocalStorage()

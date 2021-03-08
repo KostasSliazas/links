@@ -258,6 +258,7 @@
     for (let i = 0; i < json.length; i++) {
       window.localStorage.setItem(json[i].full, JSON.stringify(json[i]))
     }
+    hide(showExport)
     loopLocalStorage()
   }
 

@@ -126,7 +126,7 @@
         type,
         url
       } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
-      const values = type.concat(text.split(), url.split())
+      const values = type.concat(text.split(), url.split(), full.split())
       const isInarray = values.map(e => {
         if (e.toLowerCase().includes(search.value.toLowerCase())) {
           return true

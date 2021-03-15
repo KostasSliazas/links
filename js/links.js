@@ -196,7 +196,7 @@
   const saveData = (function () {
     const a = document.createElement('a')
     return function (data, fileName) {
-      const json = JSON.stringify(data)
+      const json = JSON.stringify(data, null, 2)
       const blob = new window.Blob([json], {
         type: 'octet/stream'
       })
@@ -227,11 +227,15 @@
     const data = []
     for (let i = 0; i < window.localStorage.length; i++) {
       data.push(JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+      data.join('\r\n')
     }
     return data
   }
 
-  exportJson.addEventListener('click', () => saveData(loopStorageItems(), fileName))
+  exportJson.addEventListener('click', () => {
+    saveData(loopStorageItems(), fileName)
+    hide(showExport)
+  })
   document.addEventListener('dblclick', loopLocalStorage)
   document.addEventListener('click', showCheckboxes)
   closeEx.addEventListener('click', () => hide(showExport))

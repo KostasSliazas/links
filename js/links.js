@@ -140,9 +140,8 @@
     }
     outpus.appendChild(docfrag)
     found.innerHTML = count + '/' + window.localStorage.length
-    if (count === 0) {
-      outpus.innerHTML = 'No results...'
-    }
+    if (count === 0)outpus.innerHTML = 'No results...'
+    if (count === 1)outpus.firstElementChild.focus()
   }
 
   function removeThis () {

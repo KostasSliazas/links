@@ -2,107 +2,229 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LINKS</title>
-  <link rel="stylesheet" href="css/style.min.css">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-  <link rel="manifest" href="site.webmanifest">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=2.0, user-scalable=yes" />
+  <meta name="Description" content="by Kostas Sliazas">
+  <title>daug.eu</title>
+  <link rel="preload" href="css/css.min.css" as="style" />
+  <link rel="stylesheet" href="css/css.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="msapplication-TileColor" content="#9f00a7" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta property="og:url" content="https://kostassliazas.github.io/landing.github.io/" />
+  <meta property="og:type" content="daug.eu" />
+  <meta property="og:title" content="daug.eu" />
+  <meta property="og:description" content="daug.eu" />
+  <meta property="og:image" content="https://kostassliazas.github.io/landing.github.io/android-chrome-192x192.png" />
+  <noscript>
+    <link rel="stylesheet" href="css/nos.min.css" />
+  </noscript>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Goldman&family=Jura&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg">
-  <div class="toggle bg" title="admin mode">
-    <label for="adm">
-      <input class="toggle-state" type="checkbox" id="adm" name="check" checked>
-      <small class="indicator"></small>
-    </label>
-  </div>
-  <div id="search">
-    <label for="site-search">search:</label>
-    <input type="search" id="site-search" aria-label="Search through site content" placeholder="Search...">
-    <div id="founded"></div>
-  </div>
-  <button id="copy-links">Export/Import links</button>
-  <div id="export-div" style="display: none;" class="bg">
-    <div class="close" id="exit">×</div>
-    <h1>Export/Import links</h1>
-    <div class="export-import">
-      <div>Export links <button id="export-json">Export JSON</button></div>
-      <div>Import links <input type="file" id="file-input" /></div>
-    </div>
-  </div>
-  <button id="open">Add links +</button>
-  <div id="links" style="display: none;" class="bg">
-    <h1>Add links to LocalStorage</h1>
-    <div class="close" id="exit1">×</div>
-    <div class="inside">
-      <div id="selection">
-        <button id="select">Tags select</button>
-        <div id="check-boxes">
-          <label for="add-ons">
-            <input type="checkbox" id="add-ons" value="Add-ons">Add-ons</label>
-          <label for="android">
-            <input type="checkbox" id="android" value="android">android</label>
-          <label for="books">
-            <input type="checkbox" id="books" value="books">books</label>
-          <label for="buy">
-            <input type="checkbox" id="buy" value="buy">buy</label>
-          <label for="cart">
-            <input type="checkbox" id="cart" value="cart">cart</label>
-          <label for="css-tools">
-            <input type="checkbox" id="css-tools" value="css-tools">CSS tools</label>
-          <label for="database">
-            <input type="checkbox" id="database" value="database">database</label>
-          <label for="editing">
-            <input type="checkbox" id="editing" value="editing">editing</label>
-          <label for="graphics">
-            <input type="checkbox" id="graphics" value="graphics">Graphics</label>
-          <label for="games">
-            <input type="checkbox" id="games" value="games">games</label>
-          <label for="javascript">
-            <input type="checkbox" id="javascript" value="javascript">javascript</label>
-          <label for="learning">
-            <input type="checkbox" id="learning" value="learning">learning</label>
-          <label for="linux">
-            <input type="checkbox" id="linux" value="Linux">Linux</label>
-          <label for="optimizing">
-            <input type="checkbox" id="optimizing" value="optimizing">optimizing</label>
-          <label for="php">
-            <input type="checkbox" id="php" value="php">php</label>
-          <label for="plugin">
-            <input type="checkbox" id="plugin" value="Plugin">Plugin</label>
-          <label for="printing">
-            <input type="checkbox" id="printing" value="printing">Printing</label>
-          <label for="program">
-            <input type="checkbox" id="program" value="program">Program</label>
-          <label for="programing">
-            <input type="checkbox" id="programing" value="programing">programing</label>
-          <label for="text">
-            <input type="checkbox" id="text" value="text">Text</label>
-          <label for="typography">
-            <input type="checkbox" id="typography" value="typography">typography</label>
-          <label for="videos">
-            <input type="checkbox" id="videos" value="videos">videos</label>
-          <label for="web-browser">
-            <input type="checkbox" id="web-browser" value="web-browser">web-browser</label>
-          <label for="webtools">
-            <input type="checkbox" id="webtools" value="webtools">WebTools</label>
-        </div>
-        <div id="choises"></div>
+<body>
+  <div class="wraper">
+    <input type="checkbox" id="themesw" class="theme thm">
+    <label for="themesw" id="theme" class="theme">theme</label>
+    <a href="#main" class="theme top" rel="noopener noreferrer" tabindex="-1">Top</a>
+    <header class="bg">
+      <div class="header">
+        <a href="/landing.github.io" rel="noopener noreferrer" tabindex="-1"><span class="logo">daug.eu</span></a>
       </div>
-      <label for="urls">URL
-        <input id="urls" type="text" placeholder="URL" value="" required></label>
-      <label for="aditions">Text
-        <input id="aditions" type="text" placeholder="additional text" value=""></label>
-      <button id="create-link">Add link (URL)</button>
+    </header>
+    <div class="navwrap">
+      <div class="menu">
+        <nav>
+          <a href="/landing.github.io" rel="noopener noreferrer" aria-label="logo" id="logo" tabindex="-1"><span
+              class="icon icon-logok"><span class="path1"></span><span class="path2"></span></span></a>
+          <a class="bur" aria-haspopup="true" aria-controls="menus" aria-expanded="false" id="kmen" role="button">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </a>
+          <ul id="menus" class="exp hid nav" tabindex="-1">
+            <li>
+              <a href="#download">Downloads</a>
+            </li>
+            <li>
+              <a href="#tools">Web Tools</a>
+            </li>
+            <li>
+              <a href="#" role="button">Design</a>
+              <ul class="exp hid">
+                <li>
+                  <a href="#vector">Vectors</a>
+                </li>
+                <li>
+                  <a href="#threed">3D graphics</a>
+                </li>
+                <li>
+                  <a href="#websites">Websites</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="wrp" tabindex="0">
+      <div id="main" class="clearfix bg">
+        <div id="leftcolumn">
+          <div class="box" id="threed">
+            <h1>3D graphics</h1>
+            <div class="imgDiv group">
+              <div class="paveik two ran">
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/1_copy.jpg" alt="1" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/2_copy.jpg" alt="2" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/5_copy.jpg" alt="3" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/11_copy.jpg" alt="4" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/12_copy.jpg" alt="5" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/14_copy.jpg" alt="6" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/15_copy.jpg" alt="7" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/16_copy.jpg" alt="8" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/18_copy.jpg" alt="9" /></span>
+                <span><img loading="lazy" height="200" width="400" src="photo/thumb/19_copy.jpg" alt="10" /></span>
+              </div>
+            </div>
+          </div>
+          <div class="box" id="vector">
+            <h1>Vectors</h1>
+            <div class="imgDiv group">
+              <div class="paveik one">
+                <span><img loading="lazy" height="200" width="400" src="svg/01.svg" alt="svg1" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/02.svg" alt="svg2" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/10.svg" alt="svg3" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/04.svg" alt="svg4" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/05.svg" alt="svg5" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/06.svg" alt="svg6" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/07.svg" alt="svg7" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/08.svg" alt="svg8" /></span>
+                <span><img loading="lazy" height="200" width="400" src="svg/09.svg" alt="svg9" /></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div id="rightcolumn">
+          <div class="box" id="tools">
+            <h1><span class="icon-prop"></span>Web Tools</h1>
+            <p><a href="https://kostassliazas.github.io/colorzebra.github.io/" target="_blank"
+                rel="noopener noreferrer">COLORZEBRA</a></p>
+            <p><a href="https://kostassliazas.github.io/gradients.github.io" target="_blank" rel="noopener noreferrer">2
+                colors gradient</a></p>
+            <p><a href="https://kostassliazas.github.io/gradient-generator-2.github.io/" target="_blank"
+                rel="noopener noreferrer">gradients</a></p>
+            <p><a href="https://europass-maker-offline.now.sh/" target="_blank" rel="noopener noreferrer">cv-maker</a>
+            </p>
+            <p><a href="https://kostassliazas.github.io/links-webpage/" target="_blank"
+                rel="noopener noreferrer">links-webpage</a></p>
+            <p><a href="https://kostassliazas.github.io/kcolorandom/" target="_blank" rel="noopener noreferrer">Color
+                palettes</a></p>
+            <p><a href="https://kostassliazas.github.io/drunktextmaker.github.io/" target="_blank"
+                rel="noopener noreferrer">drunktextmaker</a></p>
+            <p><a href="https://kostassliazas.github.io/text-shadow.github.io/" target="_blank"
+                rel="noopener noreferrer">text-shadow</a></p>
+            <p><a href="https://kostassliazas.github.io/free-vectors.github.io/" target="_blank"
+                rel="noopener noreferrer">Free vectors</a></p>
+            <p><a href="https://kostassliazas.github.io/calculator.github.io/" target="_blank"
+                rel="noopener noreferrer">Calculator</a></p>
+            <p> <a href="https://kostassliazas.github.io/image-gallery.io/" target="_blank"
+                rel="noopener noreferrer">Image gallery</a>
+            </p>
+          </div>
+
+          <div class="box" id="download">
+            <h1><span class="icon-down"></span>Downloads</h1>
+            <p><a target="_blank" rel="noopener noreferrer" href="downloads/hameleon.zip">HTML template hameleon</a></p>
+            <p><a target="_blank" rel="noopener noreferrer" href="downloads/template.zip">HTML template Simple</a></p>
+            <p><a href="https://dl.dropboxusercontent.com/s/9qo7loow86b29lf/cv-maker.zip?dl=0" rel="noopener noreferrer"
+                target="_blank">CV-maker</a></p>
+            <p><a href="https://dl.dropboxusercontent.com/s/iuj6x574vuzi8vr/SVG.zip?dl=0" rel="noopener noreferrer"
+                target="_blank">Free 77
+                vectors(*.svg)</a></p>
+            <p><a href="https://www.dl.dropboxusercontent.com/s/zd2nld9u60f92xk/LINKS.zip?dl=0"
+                rel="noopener noreferrer" target="_blank">Local links</a></p>
+            <p><a href="https://www.dl.dropboxusercontent.com/s/h68d5ui3tz3y2fc/K777.zip?dl=0" target="_blank">WordPress
+                Theme</a></p>
+          </div>
+          <div class="box" id="websites">
+            <h1>Websites</h1>
+            <div class="allcontainer">
+              <div class="imgcontainer">
+                <a href="https://europass-maker-offline.now.sh/" aria-label="cv-maker" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-001.jpg" alt="1" /></a>
+                <a href="https://kostassliazas.github.io/kcolorandom/" aria-label="kcolor" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-002.jpg" alt="2" /></a>
+                <a href="https://kostassliazas.github.io/Game7x7x7.github.io/" aria-label="7x7x7" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-003.jpg" alt="3" /></a>
+                <a href="https://kostassliazas.github.io/html-template/" aria-label="link2" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-008.jpg" alt="7" /></a>
+                <a href="https://kostassliazas.github.io/game-cards.github.io/" aria-label="MemoryGame" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-042.jpg" alt="8" /></a>
+                <a href="https://kostassliazas.github.io/burundukas.github.io/" aria-label="burundukas" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-010.jpg" alt="8" /></a>
+                <a href="https://kostassliazas.github.io/links.github.io/" aria-label="burundukas" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-701.jpg" alt="8" /></a>
+                <a href="https://kostassliazas.github.io/questions.github.io/" aria-label="questions" target="_blank"
+                  rel="noopener noreferrer nofollow"><img src="img/image-320-702.jpg" alt="8" /></a>
+              </div>
+              <div class="lbtn"></div>
+              <div class="rbtn"></div>
+              <div class="pbtn acts"></div>
+              <div class="loader"></div>
+            </div>
+          </div>
+          <div class="box clearfix" id="about">
+            <h1><span class="icon-pers"></span>About</h1>
+            <p id="dynamic"></p>
+            People see what they want to see and always hear what they want to hear, then they add more color and
+            contrast from their soul if they have any.
+          </div>
+          <div class="box" id="contacts">
+            <h1><span class="icon-mail"></span>Contacts</h1>
+            <div class="h24"><a class="github-button" href="https://github.com/KostasSliazas"
+                aria-label="Follow @KostasSliazas on GitHub">Follow</a>
+              <a target="_blank" class="btnsd" rel="noopener noreferrer"
+                href="https://www.paypal.com/paypalme/kostassliazas">Donate</a>
+              <a class="icos cryptedmail btnsd" id="mailto" data-nam="kostazzz" data-lt="lt" data-dom="balticum-tv"
+                href=""
+                onclick="window.location.href = 'mailto:' + this.dataset.nam + '@' + this.dataset.dom + '.' + this.dataset.lt; return false;">e-mail</a>
+            </div>
+          </div>
+        </div>
+        <div id="footer">
+          <p><span class="class10">&copy;2021</span></p>
+        </div>
+      </div>
     </div>
   </div>
-  <div id="wrap" class="bg">
-    <div id="outpus"></div>
+  <div id="imgShow">
+    <div id="alts"></div>
+    <div id="kclose">&#10006;</div>
+    <div id="imgTotal"></div>
+    <a id="down">Download</a>
+    <div id="loader"></div>
+    <a id="prevImg">&#10094;</a>
+    <a id="nextImg">&#10095;</a>
   </div>
-  <script src="./js/links.min.js"></script>
+  <div id="spiner"><span>K</span></div>
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <script defer src="js/script.min.js"></script>
+  <script defer src="js/imgs.min.js"></script>
+  <script id="cookieinfo" src="//cookieinfoscript.com/js/cookieinfo.min.js" data-bg="#777" data-fg="#FFFFFF"
+    data-link="#F1D600" data-cookie="CookieInfoScript" data-text-align="left" data-zindex="99999999"
+    data-accept-on-scroll="true" data-height="48" data-close-text="Got it!">
+  </script>
 </body>
 
 </html>

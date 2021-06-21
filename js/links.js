@@ -101,7 +101,7 @@
     search.focus()
     search.value = ''
     outpus.innerHTML = ''
-    if (window.localStorage.length === 0) {
+    if (window.localStorage.length === 0 || !JSON.parse(window.localStorage.getItem(window.localStorage.key('url')))) {
       outpus.innerHTML = 'No links added...'
       return
     }
@@ -115,7 +115,7 @@
       if (typeof full !== 'undefined') createElem(url, type, text, full)
     }
     outpus.appendChild(docfrag)
-    const total = window.localStorage.length
+    const total = JSON.parse(window.localStorage.getItem(window.localStorage.key('url'))) ? window.localStorage.length : 0
     found.innerHTML = total + '/' + total
   }
 
@@ -142,7 +142,8 @@
       }
     }
     outpus.appendChild(docfrag)
-    found.innerHTML = count + '/' + window.localStorage.length
+    const total = JSON.parse(window.localStorage.getItem(window.localStorage.key('url'))) ? window.localStorage.length : 0
+    found.innerHTML = count + '/' + total
     if (count === 0)outpus.innerHTML = 'No results...'
     // if (count === 1)outpus.firstElementChild.click()
   }

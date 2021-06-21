@@ -142,7 +142,7 @@
     outpus.appendChild(docfrag)
     found.innerHTML = count + '/' + window.localStorage.length
     if (count === 0)outpus.innerHTML = 'No results...'
-    if (count === 1)outpus.firstElementChild.focus()
+    // if (count === 1)outpus.firstElementChild.click()
   }
 
   function removeThis () {
@@ -177,6 +177,7 @@
     if (event.key === 'Enter' && event.target.value.length > 0) {
       event.preventDefault()
       loopLocalStorageSearch()
+      outpus.firstElementChild.focus()
     } else if (event.key === 'Backspace' && event.target.value.length === 0) {
       found.innerHTML = ''
       loopLocalStorage()

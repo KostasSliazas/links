@@ -112,7 +112,7 @@
         full,
         text
       } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
-      createElem(url, type, text, full)
+      if (full.length > 4) createElem(url, type, text, full)
     }
     outpus.appendChild(docfrag)
     const total = window.localStorage.length
@@ -136,7 +136,7 @@
         }
         return false
       })
-      if (isInarray.includes(true)) {
+      if (full.length > 4 && isInarray.includes(true)) {
         count++
         createElem(url, type, text, full)
       }

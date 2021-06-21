@@ -129,16 +129,18 @@
         type,
         url
       } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
-      const values = type.concat(text.split(), url.split(), full.split())
-      const isInarray = values.map(e => {
-        if (e.toLowerCase().includes(search.value.toLowerCase())) {
-          return true
+      if (typeof full !== 'undefined' && full.indexOf('http') > -1) {
+        const values = type.concat(text.split(), url.split(), full.split())
+        const isInarray = values.map(e => {
+          if (e.toLowerCase().includes(search.value.toLowerCase())) {
+            return true
+          }
+          return false
+        })
+        if (isInarray.includes(true)) {
+          count++
+          createElem(url, type, text, full)
         }
-        return false
-      })
-      if (typeof full !== 'undefined' && full.indexOf('http') > -1 && isInarray.includes(true)) {
-        count++
-        createElem(url, type, text, full)
       }
     }
     outpus.appendChild(docfrag)

@@ -255,9 +255,9 @@
 
   exportJson.addEventListener('click', () => {
     if (filteredExport.checked) {
-      saveData(exportWithSearchFilter(), fileName)
+      saveData(exportWithSearchFilter(), 'fil-' + fileName)
     } else {
-      saveData(loopStorageItems(), fileName)
+      saveData(loopStorageItems(), 'all-' + fileName)
     }
     hide(showExport)
   })

@@ -53,7 +53,6 @@
 
   function hide (e) {
     e.style.display = e.style.display === 'none' ? ((active = true), 'block') : ((active = false), 'none')
-    console.log(active)
   }
 
   function setLinks () {
@@ -115,7 +114,7 @@
       if (typeof full !== 'undefined') createElem(url, type, text, full)
     }
     outpus.appendChild(docfrag)
-    const total = JSON.parse(window.localStorage.getItem(window.localStorage.key('url'))) ? window.localStorage.length : 0
+    const total = window.localStorage.length
     found.innerHTML = total + '/' + total
   }
 
@@ -142,7 +141,7 @@
       }
     }
     outpus.appendChild(docfrag)
-    const total = JSON.parse(window.localStorage.getItem(window.localStorage.key('url'))) ? window.localStorage.length : 0
+    const total = window.localStorage.length
     found.innerHTML = count + '/' + total
     if (count === 0)outpus.innerHTML = 'No results...'
     // if (count === 1)outpus.firstElementChild.click()

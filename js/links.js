@@ -116,7 +116,7 @@
     if (count === 0) outpus.innerHTML = 'No links added...'
     outpus.appendChild(docfrag)
     const total = window.localStorage.length
-    found.innerHTML = count + '/' + (count && total)
+    found.innerHTML = count + '/' + (count < total ? count : total)
   }
 
   function loopLocalStorageSearch () {

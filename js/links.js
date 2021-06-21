@@ -19,11 +19,12 @@
   const found = document.getElementById('founded')
   const docfrag = document.createDocumentFragment()
   const checkeds = document.getElementsByName('check')[0]
+  const filteredExport = document.getElementById('filter')
   const classSwich = () => checkeds.checked ? outpus.classList.add('checks') : outpus.classList.remove('checks')
 
   checkeds.checked = false
+  filteredExport.checked = false
   checkeds.addEventListener('input', classSwich)
-
   function showCheckboxes (e) {
     if (e.target.id === 'create-link') return
     if (e.target.id === 'select' && !(selection.classList.contains('open'))) {
@@ -180,7 +181,12 @@
       found.innerHTML = ''
       loopLocalStorage()
     } else return false
-  })
+  }, true)
+
+  // document.addEventListener('keydown', (e) => {
+  //   e.key === 'Backspace' && search.focus()
+  //   return false
+  // }, true)
 
   search.addEventListener('input', (event) => {
     if (event.target.value.length >= 0) {
@@ -230,12 +236,28 @@
     }
     return data
   }
+  const exportWithSearchFilter = () => {
+    const [...allFilteredElems] = outpus.getElementsByTagName('a')
+    const elements = allFilteredElems.map(e => {
+      return {
+        text: e.children[1].innerText,
+        url: e.children[0].innerText,
+        full: e.href,
+        type: [e.children[2].innerText]
+      }
+    })
+    return elements
+  }
 
   exportJson.addEventListener('click', () => {
-    saveData(loopStorageItems(), fileName)
+    if (filteredExport.checked) {
+      saveData(exportWithSearchFilter(), fileName)
+    } else {
+      saveData(loopStorageItems(), fileName)
+    }
     hide(showExport)
   })
-  document.addEventListener('dblclick', loopLocalStorage)
+  search.addEventListener('dblclick', loopLocalStorage)
   document.addEventListener('click', showCheckboxes)
   closeEx.addEventListener('click', () => hide(showExport))
   closeBtn.addEventListener('click', () => hide(links))

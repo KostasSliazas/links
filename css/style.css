@@ -67,7 +67,7 @@ button {
   right: 4px;
   top: 4px;
   border: 0;
-  box-shadow: 0 0 0 1px #555, 0 1px 2px #fff, 0 0 1px #fff inset;
+  box-shadow: 0 -1px 0 #333 inset,0 1px 1px #fff inset;
   border-radius: 4px;
   color: #fff;
   text-align: center;
@@ -220,9 +220,9 @@ button {
 }
 
 #outpus span.urls {
-  font-size: 13px;
+  font-size: 14px;
   color: #455;
-  padding: 4px 12px;
+  padding: 5px 12px;
   background: #f7f7f7;
   width: 100%;
   white-space: nowrap;
@@ -292,7 +292,10 @@ button:hover {
   white-space: nowrap;
   padding: 1em 0;
 }
-
+.export-import label {
+  display: inline-block;
+  font-size: initial
+}
 h1 {
   margin: 0;
   font-size: 16px;

@@ -1,8 +1,6 @@
 html {
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   -webkit-font-variant-ligatures: none;
-  -webkit-text-size-adjust: 100%;
   scrollbar-color: #161616 #4c4557;
   scrollbar-width: thin;
   text-rendering: optimizeLegibility;

@@ -100,10 +100,7 @@
     search.focus()
     search.value = ''
     outpus.innerHTML = ''
-    if (window.localStorage.length === 0 || !JSON.parse(window.localStorage.getItem(window.localStorage.key('url')))) {
-      outpus.innerHTML = 'No links added...'
-      return
-    }
+    let count = 0
     for (let i = 0; i < window.localStorage.length; i++) {
       const {
         url,
@@ -111,11 +108,15 @@
         full,
         text
       } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
-      if (typeof full !== 'undefined') createElem(url, type, text, full)
+      if (typeof full !== 'undefined') {
+        count++
+        createElem(url, type, text, full)
+      }
     }
+    if (count === 0) outpus.innerHTML = 'No links added...'
     outpus.appendChild(docfrag)
     const total = window.localStorage.length
-    found.innerHTML = total + '/' + total
+    found.innerHTML = total + '/' + count && total
   }
 
   function loopLocalStorageSearch () {

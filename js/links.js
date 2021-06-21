@@ -108,7 +108,6 @@
         full,
         text
       } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
-      console.log(full)
       if (typeof full !== 'undefined' && full.length > 4) {
         count++
         createElem(url, type, text, full)

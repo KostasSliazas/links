@@ -21,6 +21,7 @@
   const checkeds = document.getElementsByName('check')[0]
   const filteredExport = document.getElementById('filter')
   const classSwich = () => checkeds.checked ? outpus.classList.add('checks') : outpus.classList.remove('checks')
+  let active = false
 
   checkeds.checked = false
   filteredExport.checked = false
@@ -51,7 +52,8 @@
   }
 
   function hide (e) {
-    e.style.display = e.style.display === 'none' ? 'block' : 'none'
+    e.style.display = e.style.display === 'none' ? ((active = true), 'block') : ((active = false), 'none')
+    console.log(active)
   }
 
   function setLinks () {
@@ -184,10 +186,10 @@
     } else return false
   }, true)
 
-  // document.addEventListener('keydown', (e) => {
-  //   e.key === 'Backspace' && search.focus()
-  //   return false
-  // }, true)
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'Enter' && !active) search.focus()
+    return false
+  }, true)
 
   search.addEventListener('input', (event) => {
     if (event.target.value.length >= 0) {

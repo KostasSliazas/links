@@ -108,7 +108,8 @@
         full,
         text
       } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
-      if (typeof full !== 'undefined') {
+      console.log(full)
+      if (typeof full !== 'undefined' && typeof full.length > 4) {
         count++
         createElem(url, type, text, full)
       }
@@ -136,7 +137,7 @@
         }
         return false
       })
-      if (typeof full !== 'undefined' && isInarray.includes(true)) {
+      if (typeof full !== 'undefined' && typeof full.length > 4 && isInarray.includes(true)) {
         count++
         createElem(url, type, text, full)
       }

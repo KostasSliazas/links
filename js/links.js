@@ -1,7 +1,7 @@
 // all stuf for chekbox
 // jshint esversion:6
 ;
-(function () {
+(w => {
   const checkboxes = document.getElementById('check-boxes')
   const selection = document.getElementById('select')
   const choise = document.getElementById('choises')
@@ -35,7 +35,7 @@
       if (e.target.tagName === 'LABEL' || e.target.tagName === 'INPUT') return
       selection.classList.remove('open')
       checkboxes.style.display = 'none'
-      addTextOfChecked()
+      addTextOfChecked('')
     }
   }
 
@@ -73,14 +73,14 @@
   }
 
   function addStorage () {
-    if ('localStorage' in window) {
+    if ('localStorage' in w) {
       if (setLinks()) {
         const key = JSON.stringify(setLinks().full).slice(1, -1)
         const data = JSON.stringify(setLinks())
-        window.localStorage.setItem(key, data)
+        w.localStorage.setItem(key, data)
       }
     } else {
-      window.alert('no localStorage in window')
+      w.alert('no localStorage in window')
     }
   }
 
@@ -101,13 +101,13 @@
     search.value = ''
     outpus.innerHTML = ''
     let count = 0
-    for (let i = 0; i < window.localStorage.length; i++) {
+    for (let i = 0; i < w.localStorage.length; i++) {
       const {
         url,
         type,
         full,
         text
-      } = JSON.parse(window.localStorage.getItem(window.localStorage.key(i)))
+      } = JSON.parse(/** @type {!null} */ w.localStorage.getItem(/** @type {!null} */ w.localStorage.key(i)))
       if (typeof full !== 'undefined' && full.indexOf('http') > -1) {
         count++
         createElem(url, type, text, full)
@@ -115,27 +115,24 @@
     }
     if (count === 0) outpus.innerHTML = 'No links added...'
     outpus.appendChild(docfrag)
-    const total = window.localStorage.length
-    found.innerHTML = count + '/' + (count < total ? count : total)
+    const total = w.localStorage.length
+    found.innerHTML = `${count}/${count < total ? count : total}`
   }
 
   function loopLocalStorageSearch () {
     outpus.innerHTML = ''
     let count = 0
-    for (let i = 0, len = window.localStorage.length; i < len; i++) {
+    for (let i = 0, len = w.localStorage.length; i < len; i++) {
       const {
         full,
         text,
         type,
         url
-      } = (JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+      } = JSON.parse(/** @type {!null} */ w.localStorage.getItem(/** @type {!null} */ w.localStorage.key(i)))
       if (typeof full !== 'undefined' && full.indexOf('http') > -1) {
         const values = type.concat(text.split(), url.split(), full.split())
         const isInarray = values.map(e => {
-          if (e.toLowerCase().includes(search.value.toLowerCase())) {
-            return true
-          }
-          return false
+          return !!e.toLowerCase().includes(search.value.toLowerCase())
         })
         if (isInarray.includes(true)) {
           count++
@@ -144,14 +141,14 @@
       }
     }
     outpus.appendChild(docfrag)
-    const total = window.localStorage.length
-    found.innerHTML = count + '/' + total
+    const total = w.localStorage.length
+    found.innerHTML = `${count}/${total}`
     if (count === 0)outpus.innerHTML = 'No results...'
     // if (count === 1)outpus.firstElementChild.click()
   }
 
-  function removeThis () {
-    window.localStorage.removeItem(this.href)
+  function removeThis (e) {
+    w.localStorage.removeItem(e.href)
     loopLocalStorage()
     return false
   }
@@ -164,7 +161,7 @@
     const close = document.createElement('span')
     close.className = 'close'
     close.innerHTML = '×'
-    close.onclick = removeThis.bind(elems)
+    close.onclick = () => removeThis(elems)
     elems.setAttribute('href', full)
     elems.setAttribute('target', '_blank')
     types.textContent = type
@@ -204,20 +201,20 @@
     hide(showExport)
   })
 
-  const saveData = (function () {
+  const saveData = ((() => {
     const a = document.createElement('a')
-    return function (data, fileName) {
+    return (data, fileName) => {
       const json = JSON.stringify(data, null, 2)
-      const blob = new window.Blob([json], {
+      const blob = new w.Blob([json], {
         type: 'octet/stream'
       })
-      const url = window.URL.createObjectURL(blob)
+      const url = w.URL.createObjectURL(blob)
       a.href = url
       a.download = fileName
       a.click()
-      window.URL.revokeObjectURL(url)
+      w.URL.revokeObjectURL(url)
     }
-  }())
+  })())
 
   const fileName = `localStorage${dateGet()}.json`
 
@@ -227,7 +224,7 @@
     const day = dateObj.getUTCDate()
     const year = dateObj.getUTCFullYear()
     const sec = dateObj.getSeconds()
-    return '(' + year + '-' + month + '-' + day + '-' + sec + ')'
+    return `(${year}-${month}-${day}-${sec})`
   }
 
   createLink.addEventListener('click', () => {
@@ -237,8 +234,8 @@
 
   function loopStorageItems () {
     const data = []
-    for (let i = 0; i < window.localStorage.length; i++) {
-      data.push(JSON.parse(window.localStorage.getItem(window.localStorage.key(i))))
+    for (let i = 0; i < w.localStorage.length; i++) {
+      data.push(JSON.parse(/** @type {!null} */ w.localStorage.getItem(/** @type {!null} */w.localStorage.key(i))))
       data.join('\r\n')
     }
     return data
@@ -258,9 +255,9 @@
 
   exportJson.addEventListener('click', () => {
     if (filteredExport.checked) {
-      saveData(exportWithSearchFilter(), 'fil-' + fileName)
+      saveData(exportWithSearchFilter(), `fil-${fileName}`)
     } else {
-      saveData(loopStorageItems(), 'all-' + fileName)
+      saveData(loopStorageItems(), `all-${fileName}`)
     }
     hide(showExport)
   })
@@ -269,7 +266,7 @@
   closeEx.addEventListener('click', () => hide(showExport))
   closeBtn.addEventListener('click', () => hide(links))
   opensBtn.addEventListener('click', () => hide(links))
-  addTextOfChecked()
+  addTextOfChecked('')
   loopLocalStorage()
 
   function readSingleFile (e) {
@@ -277,8 +274,8 @@
     if (!file) {
       return
     }
-    const reader = new window.FileReader()
-    reader.onload = function (e) {
+    const reader = new w.FileReader()
+    reader.onload = e => {
       const contents = e.target.result
       displayContents(contents)
     }
@@ -288,7 +285,7 @@
   function displayContents (data) {
     const json = JSON.parse(data)
     for (let i = 0; i < json.length; i++) {
-      window.localStorage.setItem(json[i].full, JSON.stringify(json[i]))
+      w.localStorage.setItem(json[i].full, JSON.stringify(json[i]))
     }
     hide(showExport)
     loopLocalStorage()
@@ -296,4 +293,4 @@
 
   document.getElementById('file-input')
     .addEventListener('change', readSingleFile, false)
-}())
+})(window)
